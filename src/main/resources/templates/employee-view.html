@@ -1,0 +1,42 @@
+<!-- src/main/resources/templates/employee-view.html -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datagrid View</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row mb-2">
+        <h3 class="col-lg-10">Employees that worked/are working on the same project</h3>
+        <a href="/" class="btn btn-outline-dark btn-lg col-lg-2">Go Back</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Employee ID #1</th>
+            <th>Employee ID #2</th>
+            <th>Project ID</th>
+            <th>Days worked</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employeeOnCommonProjectDTO : ${employeeOnCommonProjectsDTOList}">
+            <td th:text="${employeeOnCommonProjectDTO.employeeOneId}"></td>
+            <td th:text="${employeeOnCommonProjectDTO.employeeTwoId}"></td>
+            <td th:text="${employeeOnCommonProjectDTO.projectId}"></td>
+            <td th:text="${employeeOnCommonProjectDTO.numberOfDaysWorkedTogether}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Include Bootstrap or any other JS framework you want to use -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
